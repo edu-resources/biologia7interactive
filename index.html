@@ -3,158 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ქიმია VII კლასი — ინტერაქტიული საგანმანათლებლო რესურსი</title>
+  <meta name="description" content="ბიოლოგია 7 — ინტერაქტიული სასწავლო პლატფორმა VII კლასის მოსწავლეებისთვის: სიმულაციები, ანიმაციები, ვიდეოები, ტესტები და ლექსიკონი.">
+  <title>ბიოლოგია 7 — ინტერაქტიული სასწავლო პლატფორმა</title>
+  
+  <!-- Design System Styles -->
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/simulations.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 
-  <!-- ==================== აპლიკაციის ჰედერი ==================== -->
+  <!-- App Header -->
   <header class="app-header">
-    <div class="header-container">
-      <a href="#home" class="brand-section" aria-label="მთავარი გვერდი">
-        <div class="app-logo">
-          <svg viewBox="0 0 24 24">
-            <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"></path>
-            <path d="M8.5 2h7M7 16h10"></path>
-          </svg>
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand-group" role="button" tabindex="0" aria-label="მთავარ გვერდზე გადასვლა">
+          <div class="brand-icon">🌱</div>
+          <div class="brand-text">
+            <span class="brand-title">ბიოლოგია 7</span>
+            <span class="brand-sub">ინტერაქტიული სასწავლო პლატფორმა</span>
+          </div>
         </div>
-        <div>
-          <h1 class="brand-title">ქიმია 7</h1>
-          <div class="brand-subtitle">ინტერაქტიული საგანმანათლებლო რესურსი VII კლასისთვის</div>
-        </div>
-      </a>
 
-      <div class="header-actions">
-        <a href="#progress" class="star-badge" title="დაგროვილი ვარსკვლავები">
-          <span>⭐</span>
-          <span id="starCount">0</span>
-        </a>
-        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="მენიუს გახსნა" onclick="AppNav.toggleMobileMenu()">
-          <svg viewBox="0 0 24 24">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+        <div class="header-actions">
+          <div class="stars-badge" title="შენი შეგროვებული ვარსკვლავები">
+            ⭐ <span id="header-stars-count">0</span>
+          </div>
+          <button class="icon-btn" id="sound-toggle-btn" aria-label="ხმის ჩართვა ან გამორთვა" title="ხმა ჩართულია">
+            🔊
+          </button>
+          <button class="icon-btn hamburger-btn" id="menu-toggle-btn" aria-label="მენიუს გახსნა">
+            ☰
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ==================== მთავარი ნავიგაციის ზოლი ==================== -->
+  <!-- Main Top Navigation (10 Sections) -->
   <nav class="main-nav-bar" aria-label="ძირითადი ნავიგაცია">
     <div class="nav-container">
-      <a href="#home" class="nav-btn active" data-route="home">
-        <span>🏠</span> მთავარი
-      </a>
-      <a href="#topics" class="nav-btn" data-route="topics">
-        <span>📚</span> თემები
-      </a>
-      <a href="#experiments" class="nav-btn" data-route="experiments">
-        <span>🧪</span> ვირტუალური ლაბორატორია
-      </a>
-      <a href="#activities" class="nav-btn" data-route="activities">
-        <span>🎮</span> სავარჯიშოები
-      </a>
-      <a href="#glossary" class="nav-btn" data-route="glossary">
-        <span>📖</span> ლექსიკონი
-      </a>
-      <a href="#safety" class="nav-btn" data-route="safety">
-        <span>🛡️</span> უსაფრთხოება
-      </a>
-      <a href="#quizzes" class="nav-btn" data-route="quizzes">
-        <span>📝</span> ტესტები
-      </a>
-      <a href="#progress" class="nav-btn" data-route="progress">
-        <span>📊</span> ჩემი პროგრესი
-      </a>
-      <a href="#help" class="nav-btn" data-route="help">
-        <span>❓</span> დახმარება
-      </a>
+      <button class="nav-tab-btn active" data-tab="home">🏠 მთავარი</button>
+      <button class="nav-tab-btn" data-tab="topics">📚 თემები</button>
+      <button class="nav-tab-btn" data-tab="simulations">🔬 სიმულაციები</button>
+      <button class="nav-tab-btn" data-tab="animations">🎬 ანიმაციები</button>
+      <button class="nav-tab-btn" data-tab="videos">▶ ვიდეოები</button>
+      <button class="nav-tab-btn" data-tab="activities">🧬 აქტივობები</button>
+      <button class="nav-tab-btn" data-tab="glossary">📖 ლექსიკონი</button>
+      <button class="nav-tab-btn" data-tab="quizzes">✅ ტესტები</button>
+      <button class="nav-tab-btn" data-tab="progress">🏆 ჩემი პროგრესი</button>
+      <button class="nav-tab-btn" data-tab="help">💡 დახმარება</button>
     </div>
   </nav>
 
-  <!-- ==================== მობილური გასაშლელი მენიუ ==================== -->
-  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="მობილური ნავიგაცია">
-    <a href="#home" class="nav-btn active" data-route="home" onclick="AppNav.closeMobileMenu()">
-      <span>🏠</span> მთავარი
-    </a>
-    <a href="#topics" class="nav-btn" data-route="topics" onclick="AppNav.closeMobileMenu()">
-      <span>📚</span> თემები
-    </a>
-    <a href="#experiments" class="nav-btn" data-route="experiments" onclick="AppNav.closeMobileMenu()">
-      <span>🧪</span> ვირტუალური ლაბორატორია
-    </a>
-    <a href="#activities" class="nav-btn" data-route="activities" onclick="AppNav.closeMobileMenu()">
-      <span>🎮</span> სავარჯიშოები
-    </a>
-    <a href="#glossary" class="nav-btn" data-route="glossary" onclick="AppNav.closeMobileMenu()">
-      <span>📖</span> ლექსიკონი
-    </a>
-    <a href="#safety" class="nav-btn" data-route="safety" onclick="AppNav.closeMobileMenu()">
-      <span>🛡️</span> უსაფრთხოება
-    </a>
-    <a href="#quizzes" class="nav-btn" data-route="quizzes" onclick="AppNav.closeMobileMenu()">
-      <span>📝</span> ტესტები
-    </a>
-    <a href="#progress" class="nav-btn" data-route="progress" onclick="AppNav.closeMobileMenu()">
-      <span>📊</span> ჩემი პროგრესი
-    </a>
-    <a href="#help" class="nav-btn" data-route="help" onclick="AppNav.closeMobileMenu()">
-      <span>❓</span> დახმარება
-    </a>
+  <!-- Collapsible Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobile-drawer" aria-label="მობილური მენიუ">
+    <button class="mobile-tab-btn active" data-tab="home">🏠 მთავარი</button>
+    <button class="mobile-tab-btn" data-tab="topics">📚 თემები</button>
+    <button class="mobile-tab-btn" data-tab="simulations">🔬 სიმულაციები</button>
+    <button class="mobile-tab-btn" data-tab="animations">🎬 ანიმაციები</button>
+    <button class="mobile-tab-btn" data-tab="videos">▶ ვიდეოები</button>
+    <button class="mobile-tab-btn" data-tab="activities">🧬 აქტივობები</button>
+    <button class="mobile-tab-btn" data-tab="glossary">📖 ლექსიკონი</button>
+    <button class="mobile-tab-btn" data-tab="quizzes">✅ ტესტები</button>
+    <button class="mobile-tab-btn" data-tab="progress">🏆 ჩემი პროგრესი</button>
+    <button class="mobile-tab-btn" data-tab="help">💡 დახმარება</button>
   </div>
 
-  <!-- ==================== ძირითადი სამუშაო არე ==================== -->
-  <main class="app-main" id="app-content" role="main">
-    <div style="padding: 3rem; text-align: center; color: var(--text-muted);">
-      ინტერაქტიული ლაბორატორია იტვირთება...
-    </div>
+  <!-- App Main Content Area (10 Interactive Sections) -->
+  <main id="app-main">
+    <section id="view-home" class="view-section active" aria-label="მთავარი გვერდი"></section>
+    <section id="view-topics" class="view-section" aria-label="სასწავლო თემები"></section>
+    <section id="view-simulations" class="view-section" aria-label="სიმულაციების ლაბორატორია"></section>
+    <section id="view-animations" class="view-section" aria-label="ეტაპობრივი ანიმაციები"></section>
+    <section id="view-videos" class="view-section" aria-label="ვიდეოგაკვეთილი"></section>
+    <section id="view-activities" class="view-section" aria-label="ინტერაქტიული აქტივობები"></section>
+    <section id="view-glossary" class="view-section" aria-label="ბიოლოგიური ლექსიკონი"></section>
+    <section id="view-quizzes" class="view-section" aria-label="ცოდნის შემმოწმებელი ტესტები"></section>
+    <section id="view-progress" class="view-section" aria-label="ჩემი პროგრესი და მიღწევები"></section>
+    <section id="view-help" class="view-section" aria-label="დახმარება და გზამკვლევი"></section>
   </main>
 
-  <!-- ==================== სარდაფი (Footer) ==================== -->
+  <!-- App Footer -->
   <footer class="app-footer">
-    <div class="footer-inner">
-      <div>
-        <strong>ქიმია VII კლასი — ინტერაქტიული საგანმანათლებლო რესურსი</strong>
-        <p style="font-size:0.8125rem; margin-top:0.25rem; color:#64748b;">
-          შექმნილია საქართველოს განათლების, მეცნიერებისა და ახალგაზრდობის სამინისტროს VII კლასის ქიმიის სახელმძღვანელოს მიხედვით.
-        </p>
-      </div>
-      <div style="font-size:0.8125rem; color:#64748b;">
-        <span>ოფლაინ მხარდაჭერა • Zero Dependencies • GitHub Pages Ready</span>
-      </div>
+    <div class="container">
+      <p style="margin:0; font-weight:600;">
+        ბიოლოგია 7 — ინტერაქტიული სასწავლო პლატფორმა • შექმნილია VII კლასის მოსწავლეებისთვის
+      </p>
+      <p style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-light);">
+        რესურსი დაფუძნებულია VII კლასის ბიოლოგიის ეროვნულ სასწავლო გეგმასა და სახელმძღვანელოზე
+      </p>
     </div>
   </footer>
 
-  <!-- ტოსტ შეტყობინება -->
-  <div id="app-toast" class="toast-msg" role="status" aria-live="polite"></div>
-
-  <!-- პროგრესის განულების მოდალი -->
-  <div id="reset-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
-    <div class="modal-box">
-      <h3 id="reset-modal-title" class="modal-title" style="color:var(--danger);">⚠️ პროგრესის განულება</h3>
-      <p class="modal-desc">
-        ნამდვილად გსურთ ყველა დაგროვილი ქულის, გავლილი თემებისა და ჩატარებული ექსპერიმენტების წაშლა? ამ მოქმედების გაუქმება შეუძლებელია.
-      </p>
-      <div class="modal-actions">
-        <button class="btn btn-secondary btn-sm" onclick="Views.closeResetModal()">გაუქმება</button>
-        <button class="btn btn-danger btn-sm" onclick="Views.confirmReset()">დიახ, განულება</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- მოდულური სკრიპტები -->
-  <script src="js/data.js"></script>
-  <script src="js/progress.js"></script>
-  <script src="js/activities.js"></script>
-  <script src="js/simulations.js"></script>
+  <!-- Application Scripts -->
+  <script src="js/icons.js"></script>
+  <script src="js/glossary_data.js"></script>
+  <script src="js/modules_data.js"></script>
+  <script src="js/simulations_data.js"></script>
+  <script src="js/sim_engine.js"></script>
+  <script src="js/animations_data.js"></script>
+  <script src="js/anim_engine.js"></script>
   <script src="js/app.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AppState.init();
-      Router.init();
-    });
-  </script>
-
 </body>
 </html>
